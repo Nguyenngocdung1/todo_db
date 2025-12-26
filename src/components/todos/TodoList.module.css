@@ -1,0 +1,151 @@
+.container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* ---------- Input ---------- */
+.input {
+  width: 100%;
+  padding: 10px 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: #1677ff;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.15);
+}
+
+/* ---------- List ---------- */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.titleText {
+  flex: 1;
+  margin-left: 8px;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* ---------- Edit ---------- */
+.editInput {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  outline: none;
+}
+
+.editInput:focus {
+  border-color: #1677ff;
+}
+
+/* ---------- Actions ---------- */
+.actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.iconBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Xem chi tiết */
+.detailBtn:hover {
+  background-color: #e6f4ff;
+  color: #1677ff;
+}
+
+/* Edit */
+.editBtn:hover {
+  background-color: #fff7e6;
+  color: #fa8c16;
+}
+
+/* Delete */
+.deleteBtn:hover {
+  background-color: #fff1f0;
+  color: #f5222d;
+}
+
+.iconBtn:active {
+  transform: scale(0.95);
+}
+
+/* ---------- Empty ---------- */
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 12px;
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pageBtn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #e6f4ff;
+  border-color: #1677ff;
+  color: #1677ff;
+}
+
+.pageBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
