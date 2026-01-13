@@ -41,6 +41,8 @@ export default function TodoList() {
   const [selectedTodoId, setSelectedTodoId] = useState<number | null>(null);
   const detailState = useTodoDetail(selectedTodoId);
 
+  const selectedTodo = todos.find((todo) => todo.id === selectedTodoId) || null;
+
   const handlePrev = useCallback(() => {
     if (currentPage > 1) {
       fetchTodos(currentPage - 1);
@@ -53,16 +55,20 @@ export default function TodoList() {
     }
   }, [currentPage, totalPages, fetchTodos]);
 
-  const onSave = (form: TodoDetail) => {
-    detailState.saveDetail(form);
+  const onSave = async (form: TodoDetail) => {
+    await detailState.saveDetail(form);
+  };
+
+  const handleUpdateSuccess = useCallback(() => {
+    fetchTodos(currentPage);
     setSelectedTodoId(null);
-  }
+  }, [currentPage, fetchTodos]);
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>📝 Todo List</h2>
 
-      {isLoading && <p>⏳ Loading...</p>}
+      {isLoading && <p className={styles.loading}>⏳ Loading...</p>}
 
       <TodoSearch value={keyword} onChange={setKeyword} />
 
@@ -103,13 +109,16 @@ export default function TodoList() {
         open={!!selectedTodoId}
         title="Todo detail"
         footer={null}
+        centered
         onCancel={() => setSelectedTodoId(null)}
       >
         {selectedTodoId && (
           <TodoDetailPanel
+            todo={selectedTodo}
             detail={detailState.detail}
             loading={detailState.loading}
             onSave={onSave}
+            onUpdateSuccess={handleUpdateSuccess}
           />
         )}
       </Modal>

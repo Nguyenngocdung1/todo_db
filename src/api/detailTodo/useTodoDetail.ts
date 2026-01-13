@@ -7,7 +7,6 @@ export function useTodoDetail(todoId: number | null) {
 
     useEffect(() => {
         if (!todoId) return;
-        debugger
         let cancelled = false;
 
         const fetchDetail = async () => {

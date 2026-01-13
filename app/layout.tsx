@@ -7,6 +7,7 @@ import {
   HomeOutlined,
   CheckSquareOutlined,
   UserOutlined,
+  TrophyOutlined,
 } from '@ant-design/icons';
 
 export default function RootLayout({
@@ -47,6 +48,14 @@ export default function RootLayout({
               >
                 <UserOutlined />
                 <span>Users</span>
+              </Link>
+
+              <Link
+                href="/random-user"
+                className={`menu-item ${isActive('/random-user') ? 'active' : ''}`}
+              >
+                <TrophyOutlined />
+                <span>Quay Random</span>
               </Link>
             </nav>
           </aside>

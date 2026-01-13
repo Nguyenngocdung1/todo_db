@@ -56,9 +56,11 @@ const TodoItem = memo(function TodoItem({
         />
       ) : (
         <span
-          className={styles.title}
+          className={styles.titleText}
           style={{
             textDecoration: todo.completed ? 'line-through' : 'none',
+            opacity: todo.completed ? 0.6 : 1,
+            color: todo.completed ? '#94a3b8' : '#1e293b',
           }}
         >
           {todo.title}
